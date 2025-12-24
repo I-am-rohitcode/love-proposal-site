@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Her Out</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    body {
+  overflow: hidden;
+}
+
+/* Responsive heading */
+.container h1 {
+  text-align: center;
+  line-height: 1.2;
+}
+.trail-heart {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.4rem;
+  animation: fadeOut 1s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-20px);
+  }
+}
+
+
+/* Mobile tuning */
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 1.5rem;
+  }
+
+  .heart {
+    font-size: 1.3rem;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tenor-gif-embed"
+      data-postid="253027946666209433"
+      data-share-method="host"
+      data-aspect-ratio="1.37853"
+      data-width="100%">
+      <a href="https://tenor.com/view/mochi-cat-mochi-and-goma-goma-and-peach-mochi-mochi-peach-cat-gif-gif-253027946666209433">
+        Mochi Cat GIF
+      </a>
+    </div>
+
+    <h1>I knew it! You love me a lot 😘</h1>
+  </div>
+
+  <!-- Falling petals -->
+  <div class="petals-container">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+
+  <script async src="https://tenor.com/embed.js"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      for (let i = 0; i < 80; i++) {
+        createHeart();
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+
+      const emojis = ["❤️", "💋", "😘"];
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 6 + 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 10000);
+    }
+  </script>
+  <script>
+  const trailEmojis = ["❤️", "💖", "😘", "💋"];
+
+  function createTrailHeart(x, y) {
+    const heart = document.createElement("div");
+    heart.className = "trail-heart";
+    heart.textContent = trailEmojis[Math.floor(Math.random() * trailEmojis.length)];
+
+    heart.style.left = x + "px";
+    heart.style.top = y + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1000);
+  }
+
+  // Touch (mobile)
+  document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    createTrailHeart(touch.clientX, touch.clientY);
+  });
+
+  // Mouse (desktop bonus)
+  document.addEventListener("mousemove", (e) => {
+    createTrailHeart(e.clientX, e.clientY);
+  });
+
+</script>
+
+</body>
+</html>
